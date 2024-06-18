@@ -1,0 +1,53 @@
+function savePitchDeck() {
+    const pitchDeck = {
+        titleSlide: {
+            companyName: document.getElementById('companyName').value,
+            tagline: document.getElementById('tagline').value,
+            presenterName: document.getElementById('presenterName').value,
+            date: document.getElementById('date').value,
+        },
+        problemStatement: document.getElementById('problem').value,
+        solution: document.getElementById('solutionText').value,
+        marketOpportunity: document.getElementById('market').value,
+        productOverview: document.getElementById('product').value,
+        businessModel: document.getElementById('business').value,
+        traction: document.getElementById('tractionText').value,
+        competition: document.getElementById('competitionText').value,
+        goToMarketStrategy: document.getElementById('marketStrategy').value,
+        financialProjections: document.getElementById('financials').value,
+        fundingAsk: document.getElementById('funding').value,
+        team: document.getElementById('teamText').value,
+        closing: document.getElementById('closingText').value,
+    };
+
+    localStorage.setItem('pitchDeck', JSON.stringify(pitchDeck));
+    alert('Pitch Deck Saved');
+}
+
+function loadPitchDeck() {
+    const pitchDeck = JSON.parse(localStorage.getItem('pitchDeck'));
+
+    if (pitchDeck) {
+        document.getElementById('companyName').value = pitchDeck.titleSlide.companyName;
+        document.getElementById('tagline').value = pitchDeck.titleSlide.tagline;
+        document.getElementById('presenterName').value = pitchDeck.titleSlide.presenterName;
+        document.getElementById('date').value = pitchDeck.titleSlide.date;
+
+        document.getElementById('problem').value = pitchDeck.problemStatement;
+        document.getElementById('solutionText').value = pitchDeck.solution;
+        document.getElementById('market').value = pitchDeck.marketOpportunity;
+        document.getElementById('product').value = pitchDeck.productOverview;
+        document.getElementById('business').value = pitchDeck.businessModel;
+        document.getElementById('tractionText').value = pitchDeck.traction;
+        document.getElementById('competitionText').value = pitchDeck.competition;
+        document.getElementById('marketStrategy').value = pitchDeck.goToMarketStrategy;
+        document.getElementById('financials').value = pitchDeck.financialProjections;
+        document.getElementById('funding').value = pitchDeck.fundingAsk;
+        document.getElementById('teamText').value = pitchDeck.team;
+        document.getElementById('closingText').value = pitchDeck.closing;
+
+        alert('Pitch Deck Loaded');
+    } else {
+        alert('No Pitch Deck found');
+    }
+}
